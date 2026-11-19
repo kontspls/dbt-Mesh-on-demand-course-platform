@@ -1,9 +1,10 @@
-name: core_platform
+name: 'mesh_project'
 version: "2.1.0"
+profile: mesh-on-demand
+require-dbt-version: ">=1.6.0"
 config-version: 2
 
-profile: "snowflake"
-require-dbt-version: ">=1.6.0"
+
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -21,8 +22,9 @@ vars:
   truncate_timespan_to: "{{ current_timestamp() }}"
 
 models:
-  core_platform:
-    staging:
-      +materialized: view
+  mesh_project:
     marts:
       +materialized: table
+    staging:
+      +materialized: view
+    
