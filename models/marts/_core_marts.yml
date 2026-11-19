@@ -1,0 +1,91 @@
+models:
+  - name: fct_orders
+    config:
+      contract:
+        enforced: true
+    columns:
+       - name: order_id
+         data_type: string
+         constraints: 
+           - type: not_null
+           - type: unique
+       - name: location_id
+         data_type: string
+       - name: customer_id
+         data_type: string
+       - name: order_total
+         data_type: decimal(27,6)
+       - name: tax_paid
+         data_type: decimal(27,6)
+       - name: ordered_at
+         data_type: timestamp_ltz
+       - name: customer_name
+         data_type: string
+       - name: location_name
+         data_type: string
+       - name: tax_rate
+         data_type: double
+       - name: location_opened_at
+         data_type: timestamp_ltz
+       - name: ordered_month
+         data_type: int
+       - name: ordered_day
+         data_type: int
+       - name: ordered_year
+         data_type: int
+  - name: fct_order_items
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: order_item_id
+        constraints: 
+           - type: not_null
+           - type: unique
+        data_type: string
+      - name: order_id
+        data_type: string
+      - name: product_id
+        data_type: string
+      - name: location_id
+        data_type: string
+      - name: customer_id
+        data_type: string
+      - name: order_total
+        data_type: decimal(27,6)
+      - name: tax_paid
+        data_type: decimal(27,6)
+      - name: ordered_at
+        data_type: timestamp_ltz
+      - name: customer_name
+        data_type: string
+      - name: location_name
+        data_type: string
+      - name: tax_rate
+        data_type: double
+      - name: location_opened_at
+        data_type: timestamp_ltz
+  - name: dim_product_supplies
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: product_id
+        data_type: string
+        constraints: 
+           - type: not_null
+           - type: unique
+      - name: product_name
+        data_type: string
+      - name: product_type
+        data_type: string
+      - name: product_description
+        data_type: string
+      - name: product_price
+        data_type: decimal(27,6)
+      - name: is_food_item
+        data_type: boolean
+      - name: is_drink_item
+        data_type: boolean
+      - name: supply_cost
+        data_type: decimal(37,6)
