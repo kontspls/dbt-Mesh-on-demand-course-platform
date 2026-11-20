@@ -3,6 +3,7 @@ models:
     config:
       contract:
         enforced: true
+    latest_version: 2
     columns:
        - name: order_id
          data_type: string
@@ -33,6 +34,21 @@ models:
          data_type: int
        - name: ordered_year
          data_type: int
+    versions:
+     - v: 1
+       deprecation_date: 01-01-2027
+     - v: 2
+       config:
+       alias: fct_orders
+       defined_in: fct_orders_v2
+       columns:
+       - include: all
+         exclude: 
+           - order_total
+       - name: order_amount
+         data_type: decimal(27,6) 
+       - name: location_ordered_at
+         data_type: date       
   - name: fct_order_items
     config:
       contract:
