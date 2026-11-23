@@ -1,0 +1,10 @@
+groups:
+  - name: finance
+    owner:
+      name: lastname thegreat
+      emnail: lastame@nonsese.com
+  - name: product
+    owner:
+      name: lex luthor
+      email: lexluthos@gmail.com
+      slack: bleh-blah

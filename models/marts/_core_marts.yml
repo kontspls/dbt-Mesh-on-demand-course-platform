@@ -3,6 +3,9 @@ models:
     config:
       contract:
         enforced: true
+      #access: protected
+      group: finance
+      access: public
     latest_version: 2
     columns:
        - name: order_id
